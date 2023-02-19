@@ -1,27 +1,23 @@
 import {
   Canvas,
   Group,
-  Rect,
-  RoundedRect,
+  runTiming,
   SweepGradient,
   useTouchHandler,
   useValue,
   vec,
 } from "@shopify/react-native-skia";
-import { StatusBar } from "expo-status-bar";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import RoundedItem from "./components/rounded-item";
-
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const SQUARES_AMOUNT_HORIZONTAL = 10;
-const SQUARES_CONTAINER_SIZE = SCREEN_WIDTH / SQUARES_AMOUNT_HORIZONTAL;
-const PADDING = 10;
-const SQUARE_SIZE = SQUARES_CONTAINER_SIZE - PADDING;
-const SQUARES_AMOUNT_VERTICAL =
-  Math.floor(SCREEN_HEIGHT / SQUARES_CONTAINER_SIZE) - 3;
-
-const CANVAS_WIDTH = SCREEN_WIDTH;
-const CANVAS_HEIGHT = SQUARES_AMOUNT_VERTICAL * SQUARES_CONTAINER_SIZE;
+import {
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+  PADDING,
+  SQUARES_AMOUNT_HORIZONTAL,
+  SQUARES_AMOUNT_VERTICAL,
+  SQUARES_CONTAINER_SIZE,
+  SQUARE_SIZE,
+} from "./constants";
 
 export default function App() {
   const touchedPoint = useValue(null);
